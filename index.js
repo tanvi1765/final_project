@@ -1,24 +1,20 @@
-const express = require("express");
-const http = require("http");
-const routes = require("./routes");
-const config = require("./config/config");
-const { connectDB } = require("./db/db.connection");
-const bodyParser = require("body-parser");
-
-const app = express();
-
-connectDB();
-app.use(bodyParser.urlencoded({ extended: false }));
-
-app.use(bodyParser.json());
-
-app.use("/v1", routes);
-
-app.use(express.static(`./public`));
-/** Database connection */
-
-const server = http.createServer(app);
-
-server.listen(config.port, () => {
-    console.log("server is started");
-});
+module.exports.adminValidation= require("./admin");
+module.exports.cartValidation= require("./cart");
+module.exports.cityValidation= require("./city");
+module.exports.countryValidation= require("./country");
+module.exports.deliveriesValidation= require("./deliveries");
+module.exports.deliveryaddressesValidation= require("./delivery_addresses");
+module.exports.imageValidation= require("./image");
+module.exports.itemValidation= require("./item");
+module.exports.offeritemValidation= require("./offer_item");
+module.exports.offerValidation= require("./offer");
+module.exports.openinghoursValidation= require("./opening_hours");
+module.exports.orderitemValidation= require("./order_item");
+module.exports.orderValidation= require("./order");
+module.exports.ownerValidation= require("./owner");
+module.exports.paymentValidation= require("./payment");
+module.exports.specializeValidation=require("./specializes");
+module.exports.restauranttypeValidation= require("./restaurant_type");
+module.exports.restaurantValidation = require("./restaurant");
+module.exports.stateValidation= require("./state");
+module.exports.userValidation = require("./user");
